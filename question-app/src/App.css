@@ -6,7 +6,6 @@
 
 .gradient-background {
   background: linear-gradient(to right, var(--right-color), var(--left-color));
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,4 +47,11 @@ button {
 }
 .start-button:hover {
   box-shadow: 0 0 10px var(--button-color);
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 350px;
+    padding: 60px 20px;
+  }
 }

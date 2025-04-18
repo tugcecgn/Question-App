@@ -2,11 +2,14 @@ import React from "react";
 import "./StartScreen.css";
 import "../App";
 
+// Başlangıç ekranı: kullanıcıya bilgi verir ve teste başlatır
 function StartScreen({ setScreen }) {
   return (
     <div className="start-screen">
       <div className="start box">
         <h1>Question App'e Hoşgeldiniz</h1>
+
+        {/* Uygulama kurallarının ve yönergelerin listesi */}
         <ul>
           <li>
             <span>
@@ -32,6 +35,7 @@ function StartScreen({ setScreen }) {
           </li>
         </ul>
 
+        {/* Başla butonu tıklanınca soru ekranına geçiş yapılır */}
         <div className="start-button-container">
           <button
             onClick={() => {

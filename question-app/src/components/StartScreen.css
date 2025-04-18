@@ -13,3 +13,9 @@
 .box ul li:hover span {
   transform: scale(1.05);
 }
+
+@media (max-width: 480px) {
+  .start.box {
+    padding: 40px;
+  }
+}

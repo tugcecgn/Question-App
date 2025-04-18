@@ -1,23 +1,33 @@
 import React from "react";
 import { useState } from "react";
+
+// Farklı ekran bileşenlerini içeri aktarıyoruz
 import StartScreen from "./components/StartScreen.jsx";
 import "./App.css";
 import QuestionScreen from "./components/QuestionScreen.jsx";
 import ResultScreen from "./components/ResultScreen.jsx";
 
 function App() {
-  const [trueAnswer, setTrueAnswer] = useState(0);
-  const [falseAnswer, setFalseAnswer] = useState(0);
-  const [nullAnswer, setNullAnswer] = useState(0);
+  // Kullanıcının verdiği cevaplara göre sayılar tutuluyor
+  const [trueAnswer, setTrueAnswer] = useState(0); // doğru cevap sayısı
+  const [falseAnswer, setFalseAnswer] = useState(0); // yanlış cevap sayısı
+  const [nullAnswer, setNullAnswer] = useState(0); // boş bırakılan cevap sayısı
+
+  // Ekran durumunu yönetiyoruz: "start", "question", "result"
   const [screen, setScreen] = useState("start");
+
+  // Kullanıcının tüm cevaplarını içeren dizi
   const [answerArray, setAnswerArray] = useState([]);
 
   return (
     <div className="gradient-background">
+      {/* Başlangıç ekranı */}
       {screen == "start" && <StartScreen setScreen={setScreen} />}
+
+      {/* Soru ekranı */}
       {screen == "question" && (
         <QuestionScreen
-          setTrueAnswer={setTrueAnswer} //bunları prop olarak questionscreenden aldık.
+          setTrueAnswer={setTrueAnswer}
           setFalseAnswer={setFalseAnswer}
           setNullAnswer={setNullAnswer}
           setScreen={setScreen}
@@ -26,6 +36,7 @@ function App() {
         />
       )}
 
+      {/* Sonuç ekranı */}
       {screen == "result" && (
         <ResultScreen
           trueAnswer={trueAnswer}

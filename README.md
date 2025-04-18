@@ -23,10 +23,10 @@ Bu uygulama ile kullanıcılar:
 
 Uygulamanın nasıl göründüğünü merak mı ettin? 👇
 
-![Question App Görseli](../Question-App-bitirme-projesi/question-app/src/assets/proje-ss/question-start.png)
-![Question App Görseli](../Question-App-bitirme-projesi/question-app/src/assets/proje-ss/question.png)
-![Question App Görseli](../Question-App-bitirme-projesi/question-app/src/assets/proje-ss/resultScreen.png)
-![Question App Görseli](../Question-App-bitirme-projesi/question-app/src/assets/proje-ss/startscreen.png)
+![Question App Görseli](/assets/proje-ss/question-start.png)
+![Question App Görseli](/assets/proje-ss/question.png)
+![Question App Görseli](/assets/proje-ss/resultScreen.png)
+![Question App Görseli](/assets/proje-ss/startscreen.png)
 
 ## 🔗 Canlı Demo
 

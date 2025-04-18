@@ -2,28 +2,30 @@ import React, { useEffect, useState } from "react";
 import question from "../Data/Question";
 import "./QuestionScreen.css";
 
+// Soru ekranı bileşeni: kullanıcıya soruları sırayla gösterir ve cevaplarını toplar
 function QuestionScreen({
-  setTrueAnswer,
-  setFalseAnswer,
-  setNullAnswer,
-  setScreen,
-  answerArray,
-  setAnswerArray,
+  setTrueAnswer, // Doğru cevap sayısını günceller
+  setFalseAnswer, // Yanlış cevap sayısını günceller
+  setNullAnswer, // Süresi dolan cevap sayısını günceller
+  setScreen, // Ekranlar arası geçiş için kullanılır (örn. sonuç ekranı)
+  answerArray, // Kullanıcının verdiği cevapları tutar
+  setAnswerArray, // Cevap dizisini günceller
 }) {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [showOptions, setShowOptions] = useState(false);
-  const [seconds, setSeconds] = useState(30);
+  // Uygulama içindeki durumlar
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Mevcut soru indexi
+  const [showOptions, setShowOptions] = useState(false); // Seçenekleri göster/gizle
+  const [seconds, setSeconds] = useState(30); // Geri sayım süresi
 
-  const currentQuestion = question[currentQuestionIndex];
+  const currentQuestion = question[currentQuestionIndex]; // O anki soru
 
-  // Sorular bittiyse otomatik sonuç ekranına geç
+  // Soru listesi bittiğinde sonuç ekranına geç
   useEffect(() => {
     if (currentQuestionIndex >= question.length) {
       setScreen("result");
     }
   }, [currentQuestionIndex, setScreen]);
 
-  // Yeni soruya geçince süreyi sıfırla ve seçenekleri gizle
+  // Her yeni soruda süreyi sıfırla ve 4 saniye sonra seçenekleri göster
   useEffect(() => {
     if (currentQuestionIndex >= question.length) return;
 
@@ -37,11 +39,12 @@ function QuestionScreen({
     return () => clearTimeout(showOptionsTimer);
   }, [currentQuestionIndex]);
 
-  // Süre azalsın ve süre dolunca boş cevap eklensin
+  // Geri sayım kontrolü ve süre bittiğinde boş cevap olarak işaretleme
   useEffect(() => {
     if (currentQuestionIndex >= question.length) return;
 
     if (seconds === 0) {
+      // Süre dolarsa "Süre doldu" olarak cevap ekle
       setNullAnswer((prev) => prev + 1);
       setAnswerArray((prev) => [
         ...prev,
@@ -53,15 +56,11 @@ function QuestionScreen({
       setCurrentQuestionIndex((prev) => prev + 1);
       return;
     }
+
+    // Geri sayım rengi için DOM üzerinden class ekle/çıkar
     const secondsEl = document.querySelector(".seconds");
-
-    if (seconds === 10) {
-      secondsEl.classList.add("warning");
-    }
-
-    if (seconds === 0 || seconds === 30) {
-      secondsEl.classList.remove("warning");
-    }
+    if (seconds === 10) secondsEl.classList.add("warning");
+    if (seconds === 0 || seconds === 30) secondsEl.classList.remove("warning");
 
     const countdown = setTimeout(() => {
       setSeconds((prev) => prev - 1);
@@ -70,10 +69,10 @@ function QuestionScreen({
     return () => clearTimeout(countdown);
   }, [seconds, currentQuestionIndex]);
 
-  if (currentQuestionIndex >= question.length) {
-    return null; // Sorular bittiyse boş div dön
-  }
+  // Sorular bittiyse ekrana hiçbir şey yazma
+  if (currentQuestionIndex >= question.length) return null;
 
+  // Ana UI bileşeni: süre, görsel, soru metni ve butonlar
   return (
     <div className="start-screen">
       <div className="question box">
@@ -88,6 +87,7 @@ function QuestionScreen({
                 <button
                   key={index}
                   onClick={() => {
+                    // Cevap kontrolü ve güncelleme
                     const newAnswer = {
                       question: currentQuestion.question,
                       selected: option,

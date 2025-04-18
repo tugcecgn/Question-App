@@ -79,8 +79,6 @@ button:hover {
   right: 45px; /* Sağdan 10px mesafe */
   top: 12px;
   box-shadow: 0 0 10px var(--second-color);
-}
-.seconds {
   background-color: var(--second-color);
   /* Zaman azaldıkça renk değişimi ekle */
 }
@@ -103,4 +101,19 @@ button:hover {
   box-shadow: 0 0 10px red;
   color: white;
   border: none;
+}
+@media (max-width: 480px) {
+  button {
+    font-size: 14px;
+  }
+  .currentQuestion {
+    font-size: 16px;
+    font-weight: 570;
+  }
+  .seconds {
+    right: 25px; /* Sağdan 10px mesafe */
+    top: 12px;
+    width: 35px;
+    height: 35px;
+  }
 }
