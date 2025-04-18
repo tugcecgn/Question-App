@@ -31,7 +31,7 @@ Uygulamanın nasıl göründüğünü merak mı ettin? 👇
 ## 🔗 Canlı Demo
 
 Projeyi canlı olarak incelemek istersen buraya tıkla:  
-🌍 **[Canlı Demo Linki](https://10question.netlify.app)**
+🌍 **[Canlı Demo Linki](https://question-app-ten-tau.vercel.app)**
 
 ## 📁 Kurulum
 
@@ -52,4 +52,3 @@ Ayrıca projeye katkı sağlamak ya da geliştirme sürecine dair tavsiyeleriniz
 📧 Mail: [tugceicigen0917@gmail.com]
 
 💡 Proje ile ilgili beğendiğiniz veya geliştirilmesini istediğiniz yönleri belirtmeniz benim için çok değerli!
-# Question-App
