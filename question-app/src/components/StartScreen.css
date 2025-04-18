@@ -1,0 +1,15 @@
+.start h1 {
+  text-align: center;
+}
+.box ul li {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.box ul li span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.box ul li:hover span {
+  transform: scale(1.05);
+}

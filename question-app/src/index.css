@@ -1,0 +1,15 @@
+:root {
+  --bg-color: #fcf9f0;
+  --button-color: #fb8500;
+  --letter-color: black;
+  --redbox-color: #c1121f;
+  --greenbox-color: #386641;
+  --graybox-color: #6c757d;
+  --second-color: #7cb518;
+  --right-color: #f7e9a3;
+  --left-color: #f2eedf;
+  --shadow-color: #fb8500;
+  margin: 0;
+  padding: 0;
+  color: var(--letter-color);
+}
