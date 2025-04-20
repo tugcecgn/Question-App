@@ -36,7 +36,7 @@ function QuestionScreen({
 
     const showOptionsTimer = setTimeout(() => {
       setShowOptions(true); // 2 saniye sonra seçenekleri göster
-    }, 2000);
+    }, 4000);
 
     return () => clearTimeout(showOptionsTimer); // Önceki zamanlayıcıyı temizle
   }, [currentQuestionIndex]);
